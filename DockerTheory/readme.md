@@ -7,12 +7,10 @@
 ### Last Updated – 31st May, 2023
 ##################################################################################################
 
-
-
-
 # History and Motivation
 
 <!-- no toc -->
+  - [Docker Installation Steps on RHEL 7](#Docker-installation-Steps-on-RHEL-7)
   - [What is a container?](#what-is-a-container)
   - [History of virtualization](#history-of-virtualization)
     - [Bare Metal](#bare-metal)
@@ -21,6 +19,30 @@
     - [Tradeoffs](#tradeoffs)
 
 ---
+
+### Docker installation Steps on RHEL 7
+A way to package application with all the necessary dependencies and configuration
+It’s a portable artifact that can be easily shared and moved around
+
+1.	Login to RHEL Linux VM
+2.	Type the following command to install Docker via yum provided by Red Hat:
+sudo yum install docker
+3.	Type the following command to remove old version of Docker:
+sudo yum remove docker docker-common docker-selinux docker-engine
+4.	Type the following command to install the latest version of Docker CE (community edition):
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+5.	sudo yum install docker-ce
+6.	Check the version of docker to verify the installation
+docker –version
+7.	Start docker daemon process by running cmd
+systemctl start docker
+8.	Run docker version cmd to check both client and server are running properly
+
+src - https://www.cyberciti.biz/faq/install-use-setup-docker-on-rhel7-centos7-linux/
+
+
+
+
 
 ## What is a container?
 
