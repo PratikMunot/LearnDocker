@@ -7,8 +7,6 @@
 ### Last Updated – 31st May, 2023
 ##################################################################################################
 
-# History and Motivation
-
 <!-- no toc -->
   - [Docker Installation Steps on RHEL 7](#Docker-installation-Steps-on-RHEL-7)
   - [What is a container?](#what-is-a-container)
@@ -41,6 +39,26 @@ systemctl start docker
 src - https://www.cyberciti.biz/faq/install-use-setup-docker-on-rhel7-centos7-linux/
 
 
+---------------------------------------------
+### Docker
+```
+Docker is a centralized platform for building, packaging, deploying, running and shipping applications. Before Docker, many users face the problem that a particular code is running in the developer's system but not in the user's system. So, the main reason to develop docker is to help developers to develop applications easily, ship them into containers, and can be deployed anywhere.
+Docker is written in the Go programming language.
+Advantages of Docker 
+•	It runs the container in seconds instead of minutes.
+•	It uses less memory.
+•	It provides lightweight virtualization.
+•	It does not a require full operating system to run applications.
+•	It uses application dependencies to reduce the risk.
+•	Docker allows you to use a remote repository to share your container with others.
+•	It provides continuous deployment and testing environment.
+Disadvantages of Docker
+•	It increases complexity due to an additional layer.
+•	In Docker, it is difficult to manage large amount of containers.
+•	Some features such as container self -registration, containers self-inspects, copying files form host to the container, and more are missing in the Docker.
+•	Docker is not a good solution for applications that require rich graphical interface.
+•	Docker provides cross-platform compatibility means if an application is designed to run in a Docker container on Windows, then it can't run on Linux or vice versa.
+```
 
 
 
