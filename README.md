@@ -253,9 +253,9 @@ root@74952fa5817e:/home#
 
 ### Important Note on Containers
 When we execute docker run command to start a container from an image – a new container is created. Now if we stop the container with docker stop it is stopped but not deleted. Now we have 2 options if we want to run the container of that image. 
-Option 1 – We can again use docker run cmd to start a container for that image
-Option 2 – We can use docker start cmd to start an existing container if we have container id/name
-In option 1 the docker run cmd will create new container everytime and in option 2 we are not creating new containers, instead we are just restarting the old or an existing container.
+<br>Option 1 – We can again use docker run cmd to start a container for that image
+<br>Option 2 – We can use docker start cmd to start an existing container if we have container id/name
+<br>In option 1 the docker run cmd will create new container everytime and in option 2 we are not creating new containers, instead we are just restarting the old or an existing container.
 Whenever we use option 1 to run a container it creates a new container and then we use stop cmd to stop the container but that container is just stopped and its not deleted yet. So in future if we wish to start the same old existing container then we can use docker start cmd with container id or name.
 Docker ps cmd will list down all the running or live containers but if we wish to see all containers which are running as well as which are stopped or in exited state then use following cmd
 
@@ -298,7 +298,6 @@ Creating Volume between the host and container
 # docker run --name myapp -v /tmp/voltest/:/usr/share/nginx/html:ro -d -p 8080:80 nginx:latest
 If our content is in present working directory then you can also use this
 # docker run --name myapp -v $(pwd):/usr/share/nginx/html:ro -d -p 8080:80 nginx:latest
-
 3)	-v /tmp/voltest:/usr/share/nginx/html:ro 
 -v is used as argument to notify we are mounting a vlume from host to container
 /tmp/voltest is the location on your host system where you have some static content like an html file
@@ -309,7 +308,6 @@ If our content is in present working directory then you can also use this
 docker run --name myapp -v C:\Users\pmunot\Desktop\Docker\website:/usr/share/nginx/html:ro -d -p 8080:80 nginx:latest
 5)	To view the html file mounted on container we can see it on browser on localhost:8080 Any changes made in our file on host will be reflected in container as well if we refresh browser page
 For those who are having trouble to create the Volume in Windows: Add a '/' before $(pwd). The rest is the same,
-
 ```
 
 
@@ -318,7 +316,6 @@ For those who are having trouble to create the Volume in Windows: Add a '/' befo
 [root@linux-vm ~]# docker ps
 CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS                                   NAMES
 90e2025f1005   nginx:latest   "/docker-entrypoint.…"   46 minutes ago   Up 46 minutes   0.0.0.0:8080->80/tcp, :::8080->80/tcp   myapp
-
 ```
 
 As we can see our container is running and using its own port 80. We have binded that that port 80of container tp port 8080 of our linux-vm localhost which is hosted on GCP cloud. Now if we wish to check the output which is on port 8080 of linux-vm then we use following gcloud command to bind localhost and port 8080 of to localhost and port 8080 of our laptop 
@@ -328,7 +325,6 @@ pratikoncloud5@cloudshell:~ (kubernetes-project-1122)$ gcloud compute ssh linux-
 OR
 # ssh -L 9876:127.0.0.1:8080 <username>@<gcpInstanceIP>
 And then in Web preview section there is option to preview on port 8080 so now we can view our data
-
 ```
 
 
@@ -344,7 +340,6 @@ C:\Users\pmunot\Desktop\Docker>docker ps
 CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS                  NAMES
 2b4acea487c0   nginx:latest   "/docker-entrypoint.…"   15 seconds ago   Up 12 seconds   0.0.0.0:8081->80/tcp   mynewapp
 74952fa5817e   nginx:latest   "/docker-entrypoint.…"   4 hours ago      Up 4 hours      0.0.0.0:8080->80/tcp   myapp
-
 ```
 We can verify this by running localhost on port 8081 in browser
 
@@ -418,15 +413,17 @@ Syntax = docker push reponame/imagename:tag
 Finally do a docker push with following cmd
 C:\Users\pmunot\Desktop\Docker\user-service-api>docker push pmunot11/mydbrepo:1.1.11
 The push refers to repository [docker.io/pmunot11/mydbrepo]
-311cccd0be73: Pushing [==================================================>]  4.342MB/4.342MB                                                                                9959a332cf6e: Mounted from library/nginx                                                                                                                                    f7e00b807643: Mounted from library/nginx                                                                                                                                    f8e880dfc4ef: Mounted from library/nginx                                                                                                                                    788e89a4d186: Mounted from library/nginx                                                                                                                                    43f4e41372e4: Mounted from library/nginx                                                                                                                                    e81bff2725db: Mounted from library/nginx                                                                                                                                    1.1.11: digest: sha256:b32082e87d9081422bf03001aa32071128b9f9282480a5fcbaee2e2e596d1121 size: 1781
+311cccd0be73: Pushing [==================================================>]  4.342MB/4.342MB
+9959a332cf6e: Mounted from library/nginx                                                                                                                                    
+f7e00b807643: Mounted from library/nginx             
+f8e880dfc4ef: Mounted from library/nginx                                                                                                                                    
+788e89a4d186: Mounted from library/nginx                                                                                                                                   
+43f4e41372e4: Mounted from library/nginx                                                                                                                                    
+e81bff2725db: Mounted from library/nginx                                                                                                                                   
+1.1.11: digest: sha256:b32082e87d9081422bf03001aa32071128b9f9282480a5fcbaee2e2e596d1121 size: 1781
 
 C:\Users\pmunot\Desktop\Docker\user-service-api>
-
-
 ```
-
-
-
 
 ### Pulling the image from our public repo
 
