@@ -6,6 +6,13 @@
 ### Readme – This document is created by Pratik Munot for basic understanding of Docker Theory
 ### Last Updated – 31st May, 2023
 ##################################################################################################
+```diff
+- text in red
++ text in green
+! text in orange
+# text in gray
+@@ text in purple (and bold)@@
+```
 
 <!-- no toc -->
   - [Docker Installation Steps on RHEL 7](#Docker-installation-Steps-on-RHEL-7)
@@ -40,7 +47,10 @@ src - https://www.cyberciti.biz/faq/install-use-setup-docker-on-rhel7-centos7-li
 
 
 ---------------------------------------------
-### Docker
+### $\textcolor{green}{Docker}$
+
+
+# Docker
 ```
 Docker is a centralized platform for building, packaging, deploying, running and shipping applications. Before Docker, many users face the problem that a particular code is running in the developer's system but not in the user's system. So, the main reason to develop docker is to help developers to develop applications easily, ship them into containers, and can be deployed anywhere.
 Docker is written in the Go programming language.
@@ -61,7 +71,7 @@ Disadvantages of Docker
 ```
 
 ---------------------------------------------
-## Docker Architecture
+# Docker Architecture
 
 ![](./assets/Docker-Architecture.JPG)
 ![](./assets/docker-architecture.jpg)
