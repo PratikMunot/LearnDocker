@@ -42,7 +42,14 @@ docker –version
 7.	Start docker daemon process by running cmd
 systemctl start docker
 8.	Run docker version cmd to check both client and server are running properly
+9.  Once you are done installing Docker, test your Docker installation by running the following:
+```
+$ docker run hello-world
 
+Hello from Docker.
+This message shows that your installation appears to be working correctly.
+
+```
 src - https://www.cyberciti.biz/faq/install-use-setup-docker-on-rhel7-centos7-linux/
 
 
@@ -52,8 +59,14 @@ src - https://www.cyberciti.biz/faq/install-use-setup-docker-on-rhel7-centos7-li
 
 # Docker
 ```
-Docker is a centralized platform for building, packaging, deploying, running and shipping applications. Before Docker, many users face the problem that a particular code is running in the developer's system but not in the user's system. So, the main reason to develop docker is to help developers to develop applications easily, ship them into containers, and can be deployed anywhere.
-Docker is written in the Go programming language.
+Docker is a centralized platform for building, packaging, deploying, running and shipping applications. In simpler words, 
+Docker is a tool that allows developers, sys-admins etc. to easily deploy their applications in a sandbox (called containers) 
+to run on the host operating system i.e. Linux. The key benefit of Docker is that it allows users to package an application 
+with all of its dependencies into a standardized unit for software development. 
+Unlike virtual machines, containers do not have high overhead and hence enable more efficient usage of the underlying system and resources.Before Docker, 
+many users face the problem that a particular code is running in the developer's system but not in the user's system. 
+So, the main reason to develop docker is to help developers to develop applications easily, ship them into containers, and can be deployed anywhere.
+Docker is written in Go programming language.
 Advantages of Docker 
 •	It runs the container in seconds instead of minutes.
 •	It uses less memory.
@@ -71,6 +84,20 @@ Disadvantages of Docker
 ```
 
 ---------------------------------------------
+### Docker Terminologies in brief
+Images
+> The blueprints of our application which form the basis of containers. In the demo above, we used the docker pull command to download the busybox image.
+
+Containers  
+> Created from Docker images and run the actual application. We create a container using docker run which we did using the busybox image that we downloaded. A list of running containers can be seen using the docker ps command.
+
+Docker Daemon
+> The background service running on the host that manages building, running and distributing Docker containers. The daemon is the process that runs in the operating system which clients talk to.
+
+Docker Hub
+> A registry of Docker images. You can think of the registry as a directory of all available Docker images. If required, one can host their own Docker registries and can use them for pulling images.
+
+
 # Docker Architecture
 
 ![](./assets/Docker-Architecture.JPG)
@@ -78,7 +105,7 @@ Disadvantages of Docker
 Docker follows Client-Server architecture, which includes the three main components that are Docker Client, Docker Host, and Docker Registry.
 
 ### 1.	Docker Client
-Docker client uses commands and REST APIs to communicate with the Docker Daemon (Server). When a client runs any docker command on the docker client terminal, the client terminal sends these docker commands to the Docker daemon. Docker daemon receives these commands from the docker client in the form of command and REST API's request. The Docker client can communicate with more than one daemon.
+> The command line tool that allows the user to interact with the daemon. More generally, there can be other forms of clients too - such as Kitematic which provide a GUI to the users. Docker client uses commands and REST APIs to communicate with the Docker Daemon (Server). When a client runs any docker command on the docker client terminal, the client terminal sends these docker commands to the Docker daemon. Docker daemon receives these commands from the docker client in the form of command and REST API's request. The Docker client can communicate with more than one daemon.
 Docker Client uses Command Line Interface (CLI) to run the following commands -
 •	docker build
 •	docker pull
@@ -135,13 +162,25 @@ An image can also be considered a snapshot of your current working environment.
 
 ---------------------------------------------
 ### Docker Container
-A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application (https://www.docker.com/resources/what-container/).Docker container is a running instance of an image. You can use Command Line Interface (CLI) commands to run, start, stop, move, or delete a container. You can also provide configuration for the network and environment variables. You can connect a container to one or more networks, attach storage to it, or even create a new image based on its current state. Docker containers are the lightweight alternatives of the virtual machine. It allows developers to package up the application with all its libraries, dependencies, and configurations, and ship it as a single package. The advantage of using a docker container is that you don't need to allocate any RAM and disk space for the applications. It automatically generates storage and space according to the application requirement. It’s a portable artifact that can be easily shared and moved around A container is an isolated environment for running an application
+A Docker container image is a lightweight, standalone, executable package of software that includes everything needed 
+to run an application (https://www.docker.com/resources/what-container/).Docker container is a running instance of an image. 
+You can use Command Line Interface (CLI) commands to run, start, stop, move, or delete a container. 
+You can also provide configuration for the network and environment variables. You can connect a container to one or more 
+networks, attach storage to it, or even create a new image based on its current state. Docker containers are the lightweight 
+alternatives of the virtual machine. It allows developers to package up the application with all its libraries, dependencies, 
+and configurations, and ship it as a single package. The advantage of using a docker container is that you don't need to 
+allocate any RAM and disk space for the applications. It automatically generates storage and space according to the application requirement. 
+It’s a portable artifact that can be easily shared and moved around A container is an isolated environment for running an application
 
-Container is basically layers of stacked images on top of each other and at the base of most containers we would have Linux based image which can be alpine with linux distro or some other specific version. Containers are an abstraction at app layer that packages code and dependencies together. So on top of base image we can have application layer along with some other necessary middle layers in between
+Container is basically layers of stacked images on top of each other and at the base of most containers we would have 
+Linux based image which can be alpine with linux distro or some other specific version. Containers are an abstraction at app 
+layer that packages code and dependencies together. So on top of base image we can have application layer along with some other necessary middle layers in between
 
-Container is a special kind of process running on computer. A VM contains complete OS but A container does not contain full blown entire OS, instead all containers on host share OS of host to be precise they share kernel of host(A kernel manages applications as well as hardware resources)
+Container is a special kind of process running on computer. A VM contains complete OS but A container does not contain full 
+blown entire OS, instead all containers on host share OS of host to be precise they share kernel of host(A kernel manages applications as well as hardware resources)
 
-On linux machine we can only build and run linux containers whereas on new windows 10 machine we can use both windows as well as linux containers. This is because new windows 10 os is build with custom linux kernal
+On linux machine we can only build and run linux containers whereas on new windows 10 machine we can use both windows 
+as well as linux containers. This is because new windows 10 os is build with custom linux kernal
 
 ---------------------------------------------
 ## History of virtualization
