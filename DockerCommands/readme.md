@@ -142,7 +142,11 @@ When we run a container with docker run image:tag cmd – this will run the cont
 ```
 docker run -d nginx:latest
 ```
-
+We can pass a command to execute while we run the container. Below command helps you to run a docker container with alpine image and execute linux command 'ls -l' inside the container
+```
+docker container run alpine ls -l
+docker container run alpine echo "hello from alpine"
+```
 -----------------------------------------------
 
 ### Run an image and set cpu or memory limits
